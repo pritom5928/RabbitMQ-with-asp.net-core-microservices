@@ -1,0 +1,17 @@
+C:\Users\user\Desktop\MicroRabbit\MicroRabbit\MicroRabbit.Transfer.Domain\bin\Debug\net5.0\MicroRabbit.Transfer.Domain.deps.json
+C:\Users\user\Desktop\MicroRabbit\MicroRabbit\MicroRabbit.Transfer.Domain\bin\Debug\net5.0\MicroRabbit.Transfer.Domain.dll
+C:\Users\user\Desktop\MicroRabbit\MicroRabbit\MicroRabbit.Transfer.Domain\bin\Debug\net5.0\ref\MicroRabbit.Transfer.Domain.dll
+C:\Users\user\Desktop\MicroRabbit\MicroRabbit\MicroRabbit.Transfer.Domain\bin\Debug\net5.0\MicroRabbit.Transfer.Domain.pdb
+C:\Users\user\Desktop\MicroRabbit\MicroRabbit\MicroRabbit.Transfer.Domain\bin\Debug\net5.0\MicroRabbit.Banking.Domain.dll
+C:\Users\user\Desktop\MicroRabbit\MicroRabbit\MicroRabbit.Transfer.Domain\bin\Debug\net5.0\MicroRabbit.Domain.Core.dll
+C:\Users\user\Desktop\MicroRabbit\MicroRabbit\MicroRabbit.Transfer.Domain\bin\Debug\net5.0\MicroRabbit.Banking.Domain.pdb
+C:\Users\user\Desktop\MicroRabbit\MicroRabbit\MicroRabbit.Transfer.Domain\bin\Debug\net5.0\MicroRabbit.Domain.Core.pdb
+C:\Users\user\Desktop\MicroRabbit\MicroRabbit\MicroRabbit.Transfer.Domain\obj\Debug\net5.0\MicroRabbit.Transfer.Domain.csproj.AssemblyReference.cache
+C:\Users\user\Desktop\MicroRabbit\MicroRabbit\MicroRabbit.Transfer.Domain\obj\Debug\net5.0\MicroRabbit.Transfer.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Desktop\MicroRabbit\MicroRabbit\MicroRabbit.Transfer.Domain\obj\Debug\net5.0\MicroRabbit.Transfer.Domain.AssemblyInfoInputs.cache
+C:\Users\user\Desktop\MicroRabbit\MicroRabbit\MicroRabbit.Transfer.Domain\obj\Debug\net5.0\MicroRabbit.Transfer.Domain.AssemblyInfo.cs
+C:\Users\user\Desktop\MicroRabbit\MicroRabbit\MicroRabbit.Transfer.Domain\obj\Debug\net5.0\MicroRabbit.Transfer.Domain.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\MicroRabbit\MicroRabbit\MicroRabbit.Transfer.Domain\obj\Debug\net5.0\MicroRabbit.Transfer.Domain.csproj.CopyComplete
+C:\Users\user\Desktop\MicroRabbit\MicroRabbit\MicroRabbit.Transfer.Domain\obj\Debug\net5.0\MicroRabbit.Transfer.Domain.dll
+C:\Users\user\Desktop\MicroRabbit\MicroRabbit\MicroRabbit.Transfer.Domain\obj\Debug\net5.0\ref\MicroRabbit.Transfer.Domain.dll
+C:\Users\user\Desktop\MicroRabbit\MicroRabbit\MicroRabbit.Transfer.Domain\obj\Debug\net5.0\MicroRabbit.Transfer.Domain.pdb
