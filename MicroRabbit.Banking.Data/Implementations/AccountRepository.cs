@@ -21,5 +21,15 @@ namespace MicroRabbit.Banking.Data.Implementations
         {
             return _db.Accounts;
         }
+
+        public void UpdateBalanceByTransferLog(int fromAccount, int toAccount, decimal transferAmount)
+        {
+            var accounts = _db.Accounts.Where(w => w.Id == fromAccount || w.Id == toAccount).ToList();
+
+            accounts.FirstOrDefault(f => f.Id == fromAccount).Acccountbalance -= transferAmount;
+            accounts.FirstOrDefault(f => f.Id == toAccount).Acccountbalance += transferAmount;
+
+            _db.SaveChanges();
+        }
     }
 }

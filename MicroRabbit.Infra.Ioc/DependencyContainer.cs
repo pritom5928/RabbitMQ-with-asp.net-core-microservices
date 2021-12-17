@@ -5,6 +5,8 @@ using MicroRabbit.Banking.Data.Context;
 using MicroRabbit.Banking.Data.Implementations;
 using MicroRabbit.Banking.Domain.CommandHandlers;
 using MicroRabbit.Banking.Domain.Commands;
+using MicroRabbit.Banking.Domain.Event;
+using MicroRabbit.Banking.Domain.EventHandlers;
 using MicroRabbit.Banking.Domain.Interfaces;
 using MicroRabbit.Domain.Core.Bus;
 using MicroRabbit.Infra.Bus;
@@ -12,6 +14,8 @@ using MicroRabbit.Transfer.Application.Interfaces;
 using MicroRabbit.Transfer.Application.Services;
 using MicroRabbit.Transfer.Data.Context;
 using MicroRabbit.Transfer.Data.Implementations;
+using MicroRabbit.Transfer.Domain.CommandHandlers;
+using MicroRabbit.Transfer.Domain.Commands;
 using MicroRabbit.Transfer.Domain.Event;
 using MicroRabbit.Transfer.Domain.EventHandlers;
 using MicroRabbit.Transfer.Domain.Interfaces;
@@ -41,13 +45,16 @@ namespace MicroRabbit.Infra.Ioc
 
             //subsciptions
             services.AddTransient<TransferEventHandler>();
+            services.AddTransient<TransferLogGeneratedEventHandler>();
 
             //domain commands
-            services.AddTransient<IEventHandler<TransferCreatedEvent>, TransferEventHandler>();
+            services.AddTransient<IEventHandler<Transfer.Domain.Event.TransferCreatedEvent>, TransferEventHandler>();
+            services.AddTransient<IEventHandler<MicroRabbit.Banking.Domain.Event.TransferLogGeneratedEvent>, TransferLogGeneratedEventHandler>();
 
             //domain commands
             services.AddTransient<IRequestHandler<CreateTransferCommand, bool>, TransferCommandHandler>();
 
+            services.AddTransient<IRequestHandler<TransferLogGeneratedCommand, bool>, TransferLogGeneratedCommandHandler>();
 
             //Data services
             services.AddTransient<IAccountService, AccountService>();
