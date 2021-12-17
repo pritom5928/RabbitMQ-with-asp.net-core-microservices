@@ -15,6 +15,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using MicroRabbit.Domain.Core.Bus;
+using MicroRabbit.Transfer.Domain.Events;
+using MicroRabbit.Banking.Domain.EventHandlers;
 
 namespace MicroRabbit.Banking.Api
 {
@@ -74,6 +77,14 @@ namespace MicroRabbit.Banking.Api
             {
                 endpoints.MapControllers();
             });
+
+            ConfigureEventBus(app);
+        }
+
+        private void ConfigureEventBus(IApplicationBuilder app)
+        {
+            var eventBus = app.ApplicationServices.GetRequiredService<IEventBus>();
+            eventBus.Subscribe<MicroRabbit.Banking.Domain.Event.TransferLogGeneratedEvent, TransferLogGeneratedEventHandler>();
         }
     }
 }
