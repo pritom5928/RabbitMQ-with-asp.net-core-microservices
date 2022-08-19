@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "SlH/3aemAe6BrtBpelCM0I8HzvstCspRX6h5kA8ThwHRTDunhK592aWdO3CMvs4To9XkysyAC98rXY1Tuk6IZQ==",
+  "dgSpecHash": "JhhS2yRxVATluUmz86fKNJzQYLbDOAeZi77JkeA5v5HjhqQ/szizdBcrS05YZpqBLpqohFzacFKN64x7jYHf/Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\user\\Desktop\\MicroRabbit\\MicroRabbit\\MicroRabbit.Transfer.Api\\MicroRabbit.Transfer.Api.csproj",
   "expectedPackageFiles": [
@@ -107,7 +107,8 @@
     "C:\\Users\\user\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\user\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
+    "C:\\Users\\user\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.13\\microsoft.netcore.app.host.win-x64.5.0.13.nupkg.sha512"
   ],
   "logs": []
 }

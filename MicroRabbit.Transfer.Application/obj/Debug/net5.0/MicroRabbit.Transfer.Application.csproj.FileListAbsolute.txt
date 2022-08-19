@@ -5,9 +5,9 @@ C:\Users\user\Desktop\MicroRabbit\MicroRabbit\MicroRabbit.Transfer.Application\b
 C:\Users\user\Desktop\MicroRabbit\MicroRabbit\MicroRabbit.Transfer.Application\bin\Debug\net5.0\MicroRabbit.Banking.Domain.dll
 C:\Users\user\Desktop\MicroRabbit\MicroRabbit\MicroRabbit.Transfer.Application\bin\Debug\net5.0\MicroRabbit.Domain.Core.dll
 C:\Users\user\Desktop\MicroRabbit\MicroRabbit\MicroRabbit.Transfer.Application\bin\Debug\net5.0\MicroRabbit.Transfer.Domain.dll
-C:\Users\user\Desktop\MicroRabbit\MicroRabbit\MicroRabbit.Transfer.Application\bin\Debug\net5.0\MicroRabbit.Domain.Core.pdb
 C:\Users\user\Desktop\MicroRabbit\MicroRabbit\MicroRabbit.Transfer.Application\bin\Debug\net5.0\MicroRabbit.Transfer.Domain.pdb
 C:\Users\user\Desktop\MicroRabbit\MicroRabbit\MicroRabbit.Transfer.Application\bin\Debug\net5.0\MicroRabbit.Banking.Domain.pdb
+C:\Users\user\Desktop\MicroRabbit\MicroRabbit\MicroRabbit.Transfer.Application\bin\Debug\net5.0\MicroRabbit.Domain.Core.pdb
 C:\Users\user\Desktop\MicroRabbit\MicroRabbit\MicroRabbit.Transfer.Application\obj\Debug\net5.0\MicroRabbit.Transfer.Application.csproj.AssemblyReference.cache
 C:\Users\user\Desktop\MicroRabbit\MicroRabbit\MicroRabbit.Transfer.Application\obj\Debug\net5.0\MicroRabbit.Transfer.Application.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\user\Desktop\MicroRabbit\MicroRabbit\MicroRabbit.Transfer.Application\obj\Debug\net5.0\MicroRabbit.Transfer.Application.AssemblyInfoInputs.cache

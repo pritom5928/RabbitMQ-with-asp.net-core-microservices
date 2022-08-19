@@ -1042,7 +1042,6 @@
       },
       "MicroRabbit.Transfer.Application/1.0.0": {
         "dependencies": {
-          "MicroRabbit.Domain.Core": "1.0.0",
           "MicroRabbit.Transfer.Domain": "1.0.0"
         },
         "runtime": {

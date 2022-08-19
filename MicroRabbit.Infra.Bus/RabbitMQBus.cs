@@ -7,9 +7,12 @@ using Newtonsoft.Json;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace MicroRabbit.Infra.Bus
@@ -21,6 +24,7 @@ namespace MicroRabbit.Infra.Bus
         private readonly List<Type> _eventTypes;
         private readonly IServiceScopeFactory _serviceScopeFactory;
 
+        public bool isRabbitMQUp { get; set; }
 
         public RabbitMQBus(IMediator mediator, IServiceScopeFactory serviceScopeFactory)
         {
@@ -28,6 +32,29 @@ namespace MicroRabbit.Infra.Bus
             _serviceScopeFactory = serviceScopeFactory;
             _handlers = new Dictionary<string, List<Type>>();
             _eventTypes = new List<Type>();
+            if (!CheckRabbitMQStatus())
+            {
+                throw new Exception("Unable to access RabbitMQ Server.This may be down or unable to start.");
+            }
+        }
+
+
+        public bool CheckRabbitMQStatus()
+        {
+            bool isOpen = false;
+
+            var factory = new ConnectionFactory()
+            {
+                HostName = "localhost",
+                DispatchConsumersAsync = true
+            };
+            using (var connection = factory.CreateConnection())
+            using (var channel = connection.CreateModel())
+            {
+                isOpen = channel.IsOpen;
+            }
+
+            return isOpen;
         }
 
         public Task SendCommand<T>(T command) where T : Command
@@ -44,15 +71,64 @@ namespace MicroRabbit.Infra.Bus
             using (var channel = connection.CreateModel())
             {
                 var eventName = @event.GetType().Name;
+                channel.QueueDeclare(eventName, true, false, false, null);
+                channel.ConfirmSelect();
+                var outstandingConfirms = new ConcurrentDictionary<ulong, string>();
 
-                channel.QueueDeclare(eventName, false, false, false, null);
+                void cleanOutstandingConfirms(ulong sequenceNumber, bool multiple)
+                {
+                    if (multiple)
+                    {
+                        var confirmed = outstandingConfirms.Where(k => k.Key <= sequenceNumber);
+                        foreach (var entry in confirmed)
+                            outstandingConfirms.TryRemove(entry.Key, out _);
+                    }
+                    else
+                        outstandingConfirms.TryRemove(sequenceNumber, out _);
+                }
+
+                //Set the message to persist in the event of a broker shutdown
+                var messageProperties = channel.CreateBasicProperties();
+                messageProperties.Persistent = true;
 
                 var message = JsonConvert.SerializeObject(@event);
-                var body = Encoding.UTF8.GetBytes(message);
+                //Send an acknowledgement that the message was persisted to disk
 
-                channel.BasicPublish("", eventName, null, body);
+                channel.BasicAcks += (sender, ea) => cleanOutstandingConfirms(ea.DeliveryTag, ea.Multiple);
+                channel.BasicNacks += (sender, ea) =>
+                {
+                    outstandingConfirms.TryGetValue(ea.DeliveryTag, out string body);
+                    Console.WriteLine($"Message with body {body} has been nack-ed. Sequence number: {ea.DeliveryTag}, multiple: {ea.Multiple}");
+                    cleanOutstandingConfirms(ea.DeliveryTag, ea.Multiple);
+                };
+
+                var timer = new Stopwatch();
+                timer.Start();
+                //var body = i.ToString();
+                outstandingConfirms.TryAdd(channel.NextPublishSeqNo, message);
+                channel.BasicPublish(exchange: "", routingKey: eventName, basicProperties: messageProperties, body: Encoding.UTF8.GetBytes(message));
+
+                if (!WaitUntil(60, () => outstandingConfirms.IsEmpty))
+                    throw new Exception("All messages could not be confirmed in 60 seconds");
+
+                timer.Stop();
+                Console.WriteLine($"Published messages and handled confirm asynchronously {timer.ElapsedMilliseconds:N0} ms");
+
+
             }
 
+        }
+
+        private static bool WaitUntil(int numberOfSeconds, Func<bool> condition)
+        {
+            int waited = 0;
+            while (!condition() && waited < numberOfSeconds * 1000)
+            {
+                Thread.Sleep(100);
+                waited += 100;
+            }
+
+            return condition();
         }
 
         public void Subscribe<T, TH>()
@@ -87,8 +163,8 @@ namespace MicroRabbit.Infra.Bus
         {
             var factory = new ConnectionFactory()
             {
-                 HostName = "localhost",
-                 DispatchConsumersAsync = true
+                HostName = "localhost",
+                DispatchConsumersAsync = true
             };
 
             var connection = factory.CreateConnection();
@@ -96,12 +172,11 @@ namespace MicroRabbit.Infra.Bus
 
             var eventName = typeof(T).Name;
 
-            channel.QueueDeclare(eventName, false, false, false, null);
+            channel.QueueDeclare(eventName, true, false, false, null);
 
             var consumer = new AsyncEventingBasicConsumer(channel);
 
             consumer.Received += Consumer_Received;
-
             channel.BasicConsume(eventName, true, consumer);
         }
 

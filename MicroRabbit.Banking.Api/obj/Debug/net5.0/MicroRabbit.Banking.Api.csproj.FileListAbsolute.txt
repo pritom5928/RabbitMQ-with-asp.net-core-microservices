@@ -74,7 +74,6 @@ C:\Users\user\Desktop\MicroRabbit\MicroRabbit\MicroRabbit.Banking.Api\obj\Debug\
 C:\Users\user\Desktop\MicroRabbit\MicroRabbit\MicroRabbit.Banking.Api\obj\Debug\net5.0\MicroRabbit.Banking.Api.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\user\Desktop\MicroRabbit\MicroRabbit\MicroRabbit.Banking.Api\obj\Debug\net5.0\MicroRabbit.Banking.Api.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\user\Desktop\MicroRabbit\MicroRabbit\MicroRabbit.Banking.Api\obj\Debug\net5.0\staticwebassets\MicroRabbit.Banking.Api.StaticWebAssets.Manifest.cache
-C:\Users\user\Desktop\MicroRabbit\MicroRabbit\MicroRabbit.Banking.Api\obj\Debug\net5.0\staticwebassets\MicroRabbit.Banking.Api.StaticWebAssets.xml
 C:\Users\user\Desktop\MicroRabbit\MicroRabbit\MicroRabbit.Banking.Api\obj\Debug\net5.0\scopedcss\bundle\MicroRabbit.Banking.Api.styles.css
 C:\Users\user\Desktop\MicroRabbit\MicroRabbit\MicroRabbit.Banking.Api\obj\Debug\net5.0\MicroRabbit.Banking.Api.RazorTargetAssemblyInfo.cache
 C:\Users\user\Desktop\MicroRabbit\MicroRabbit\MicroRabbit.Banking.Api\obj\Debug\net5.0\MicroRabbit.Banking.Api.csproj.CopyComplete
@@ -82,3 +81,4 @@ C:\Users\user\Desktop\MicroRabbit\MicroRabbit\MicroRabbit.Banking.Api\obj\Debug\
 C:\Users\user\Desktop\MicroRabbit\MicroRabbit\MicroRabbit.Banking.Api\obj\Debug\net5.0\ref\MicroRabbit.Banking.Api.dll
 C:\Users\user\Desktop\MicroRabbit\MicroRabbit\MicroRabbit.Banking.Api\obj\Debug\net5.0\MicroRabbit.Banking.Api.pdb
 C:\Users\user\Desktop\MicroRabbit\MicroRabbit\MicroRabbit.Banking.Api\obj\Debug\net5.0\MicroRabbit.Banking.Api.genruntimeconfig.cache
+C:\Users\user\Desktop\MicroRabbit\MicroRabbit\MicroRabbit.Banking.Api\bin\Debug\net5.0\MicroRabbit.Banking.Api.StaticWebAssets.xml

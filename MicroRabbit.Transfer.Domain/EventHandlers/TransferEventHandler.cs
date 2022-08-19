@@ -31,12 +31,12 @@ namespace MicroRabbit.Transfer.Domain.EventHandlers
                 TransferAmount = @event.Amount
             });
 
-            _bus.SendCommand(new TransferLogGeneratedCommand 
-            (
-               @event.From,
-               @event.To,
-               @event.Amount
-            ));
+            //_bus.SendCommand(new TransferLogGeneratedCommand 
+            //(
+            //   @event.From,
+            //   @event.To,
+            //   @event.Amount
+            //));
 
             return Task.CompletedTask;
         }

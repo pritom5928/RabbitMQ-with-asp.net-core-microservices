@@ -42,6 +42,12 @@ namespace MicroRabbit.Infra.Ioc
                 return new RabbitMQBus(sp.GetService<IMediator>(), scopeFactory);
             });
 
+            //services.AddScoped<IEventBus, RabbitMQBus>(sp => 
+            //{
+            //    var scopeFactory = sp.GetRequiredService<IServiceScopeFactory>();
+            //    return new RabbitMQBus(sp.GetService<IMediator>(), scopeFactory);
+            //});
+
 
             //subsciptions
             services.AddTransient<TransferEventHandler>();
